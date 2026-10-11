@@ -1,3 +1,10 @@
+Purpose:
+We're creating a simple Lambda handler that:
+1. Receives an event
+2. Writes information to CloudWatch
+3. Returns a response
+
+HANDS-ON:
 
 Code → index.js
 Replace the code with:
