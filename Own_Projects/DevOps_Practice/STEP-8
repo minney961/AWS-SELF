@@ -1,0 +1,33 @@
+Step 8 — DynamoDB
+PURPOSE:
+Why?
+DynamoDB will store our device information.
+Current architecture:
+API Gateway
+      ↓
+Lambda
+      ↓
+DynamoDB
+
+Why deviceId as partition key?
+Because we expect to retrieve data using the device ID. DynamoDB design should start from the access pattern.
+
+Important billing point
+Choose On-demand, and after we're finished with DynamoDB practice, we'll delete the table.
+
+HANDSON:
+Go to:
+AWS Console → DynamoDB → Tables → Create table
+Use:
+Table name:
+InterviewDevices
+
+Partition key:
+deviceId
+
+Type:
+String
+
+For capacity mode, choose:
+On-demand
+Create the table.
