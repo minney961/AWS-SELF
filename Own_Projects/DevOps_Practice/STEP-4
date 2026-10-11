@@ -1,0 +1,19 @@
+Purpose:
+Why are we passing an event?
+Because Lambda is event-driven. The event could come from API Gateway, SQS, S3, EventBridge, etc.
+Here we're manually providing the event just to understand the Lambda behavior.
+
+HANDS-ON:
+Click Test → Create new event
+Event name:
+testEvent
+
+Event JSON:
+{
+  "deviceId": "device-001",
+  "temperature": 28
+}
+
+Click Save → Test.
+You should get:
+Status: Succeeded
