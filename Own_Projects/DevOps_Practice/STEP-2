@@ -1,3 +1,8 @@
+Purpose: 
+Lambda needs permission to interact with other AWS services. Instead of giving permissions directly to the Lambda, we give it an IAM execution role.
+We attached:
+AWSLambdaBasicExecutionRole- This allows Lambda to write its execution logs to CloudWatch.
+
 Go to:
 AWS Console → Lambda → Functions → Create function
 Choose:
