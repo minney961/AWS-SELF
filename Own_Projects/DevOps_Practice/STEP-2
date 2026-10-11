@@ -1,0 +1,11 @@
+Go to:
+AWS Console → Lambda → Functions → Create function
+Choose:
+- Author from scratch
+- Function name: InterviewLambda
+- Runtime: Node.js 22.x
+- Architecture: x86_64
+- Permissions → Use an existing role
+- Existing role: InterviewLambdaRole
+
+Click Create function
