@@ -5,8 +5,9 @@
        IaC              Serverless       Security
           |                |                |
        CDK             Lambda          IAM
-    TypeScript       API Gateway        KMS
- CloudFormation    DynamoDB      Secrets Manager
+    TypeScript      API Gateway        KMS
+    CloudFormation    DynamoDB      Secrets Manager
+
          
           |                |                |
           +----------------+----------------+
