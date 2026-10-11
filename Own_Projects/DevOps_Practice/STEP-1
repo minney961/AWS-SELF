@@ -8,5 +8,4 @@ AWSLambdaBasicExecutionRole
 Role name:
 InterviewLambdaRole
 
-Create it.
-
+Create it
