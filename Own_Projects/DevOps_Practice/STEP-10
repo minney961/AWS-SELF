@@ -51,3 +51,11 @@ export const handler = async (event) => {
 };
 
 Click Deploy.
+
+test with:
+{
+  "deviceId": "device-002",
+  "temperature": 30
+}
+
+Then check DynamoDB → Explore table items and see whether device-002 appears.
