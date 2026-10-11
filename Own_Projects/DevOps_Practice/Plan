@@ -5,3 +5,20 @@ API Gateway → Lambda → SQS → Lambda → DynamoDB
 
 And along the way touch:
 IAM → CloudWatch → S3 → EventBridge → Secrets Manager → KMS → CDK
+
+We'll go in this order:
+1. IAM — role + permissions
+2. Lambda — create/test
+3. CloudWatch — logs
+4. API Gateway → Lambda
+5. DynamoDB — table + operations
+6. SQS Standard
+7. SQS FIFO
+8. Lambda → SQS → Lambda
+9. EventBridge
+10. S3
+11. Secrets Manager
+12. KMS
+13. X-Ray
+14. CDK + TypeScript
+15. CloudFormation relationship
