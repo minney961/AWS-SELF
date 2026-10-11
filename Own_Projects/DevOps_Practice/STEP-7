@@ -1,0 +1,38 @@
+Step 7 — Test API Gateway → Lambda
+
+PURPOSE:
+Why?
+We're proving the complete flow works:
+HTTP Request
+     ↓
+API Gateway
+     ↓
+Lambda
+     ↓
+Response
+
+HANDSON:
+In API Gateway, copy your Invoke URL.
+It should look like:
+https://xxxxx.execute-api.ap-south-1.amazonaws.com/dev
+
+Add /devices:
+https://xxxxx.execute-api.ap-south-1.amazonaws.com/dev/devices
+
+Since you're on Windows, easiest is PowerShell:
+Invoke-RestMethod `
+  -Uri "YOUR_URL/devices" `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{"deviceId":"device-001","temperature":28}'
+USE curl command in cmd:
+curl -X POST "https://dworj763qg.execute-api.ap-south-1.amazonaws.com/dev/devices" -H "Content-Type: application/json" -d "{\"deviceId\":\"device-001\",\"temperature\":28}"
+
+Expected response
+message
+-------
+Hello from Lambda
+
+Note:
+Invoke-RestMethod → PowerShell command
+curl → works from CMD
