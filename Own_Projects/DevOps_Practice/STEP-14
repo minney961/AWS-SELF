@@ -1,0 +1,38 @@
+Now test the actual SQS → Lambda flow.
+Step 14 — Send another SQS message
+PURPOSE:
+Why?
+Now we've actually demonstrated:
+SQS message
+    ↓
+Lambda automatically triggered
+    ↓
+Lambda processes event
+
+And remember the error we just fixed:
+Lambda execution role didn't have sqs:ReceiveMessage.
+
+That's excellent hands-on troubleshooting for your interview.
+Interview question
+If they ask:
+"What happens when an SQS message is sent to a Lambda trigger?"
+Say:
+"Lambda polls the SQS queue through the event source mapping. When messages are available, Lambda invokes the function with the messages as the event. 
+If processing succeeds, the messages are deleted from the queue. 
+If processing fails, the messages become visible again after the visibility timeout and can be retried. For repeatedly failing messages, I can configure a DLQ."
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+HANDSON:
+Go to:
+SQS → InterviewQueue → Send and receive messages → Send message
+Use:
+{
+  "deviceId": "device-005",
+  "temperature": 36
+}
+
+Send it.
+Wait about 10–20 seconds.
+Then go:
+Lambda → InterviewLambda → Monitor → View CloudWatch logs
+Open the latest log stream.
+You should see the Lambda invocation and the SQS event.
