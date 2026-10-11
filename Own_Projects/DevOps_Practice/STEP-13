@@ -2,7 +2,34 @@ Next
 We'll connect:
 SQS → Lambda
 So Lambda automatically processes messages arriving in the queue.
-Step 9 — SQS → Lambda
+Before that add the role
+Go to:
+IAM → Roles → InterviewLambdaRole → Add permissions → Attach policies
+Search for:
+AWSLambdaSQSQueueExecutionRole
+
+Select it and click Add permissions.
+Why?
+For an SQS-triggered Lambda, Lambda needs permissions such as:
+- sqs:ReceiveMessage
+- sqs:DeleteMessage
+- sqs:GetQueueAttributes
+The AWS managed policy provides the required permissions for the basic SQS event-source integration.
+Our architecture is:
+SQS
+ ↓
+Lambda
+ ↓
+DynamoDB
+
+So the Lambda role now needs:
+CloudWatch permissions
+        +
+DynamoDB permissions
+        +
+SQS permissions
+
+Step 13 — SQS → Lambda
 PURPOSE:
 Why?
 Now Lambda will automatically be invoked when messages arrive in SQS.
