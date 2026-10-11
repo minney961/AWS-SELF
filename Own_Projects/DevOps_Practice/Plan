@@ -1,0 +1,7 @@
+Hands-on Plan
+
+We'll build:
+API Gateway → Lambda → SQS → Lambda → DynamoDB
+
+And along the way touch:
+IAM → CloudWatch → S3 → EventBridge → Secrets Manager → KMS → CDK
