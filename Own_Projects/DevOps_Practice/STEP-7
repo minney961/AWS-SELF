@@ -36,3 +36,12 @@ Hello from Lambda
 Note:
 Invoke-RestMethod → PowerShell command
 curl → works from CMD
+
+Remember this flow
+Client
+  ↓ POST /devices
+API Gateway
+  ↓
+Lambda
+  ↓
+Response
