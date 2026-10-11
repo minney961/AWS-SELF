@@ -1,0 +1,56 @@
+Next
+We'll connect:
+SQS → Lambda
+So Lambda automatically processes messages arriving in the queue.
+Step 9 — SQS → Lambda
+PURPOSE:
+Why?
+Now Lambda will automatically be invoked when messages arrive in SQS.
+Our flow becomes:
+API / Producer
+      ↓
+     SQS
+      ↓
+    Lambda
+      ↓
+  Processing
+
+This is a classic event-driven architecture.
+
+Interview answer
+If asked:
+"How do you integrate SQS with Lambda?"
+
+Say:
+"I configure the SQS queue as an event source for Lambda. Lambda polls the queue and invokes the function when messages are available. 
+The function processes the messages, and successfully processed messages are removed from the queue.
+If processing fails, the message can become visible again and be retried, and we can configure a dead-letter queue for messages that repeatedly fail."
+
+HANDSON:
+Go to:
+Lambda → InterviewLambda → Function overview
+Click Add trigger.
+Select:
+SQS
+Choose:
+InterviewQueue
+
+Batch size:
+1
+
+Keep the other settings default.
+Click Add.
+
+Test
+Go back to:
+SQS → InterviewQueue → Send and receive messages
+Send:
+{
+  "deviceId": "device-004",
+  "temperature": 35
+}
+
+Wait a few seconds.
+Then check:
+Lambda → InterviewLambda → Monitor → CloudWatch logs
+You should see a new invocation.
