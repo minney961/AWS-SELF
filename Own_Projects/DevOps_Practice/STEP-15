@@ -1,0 +1,29 @@
+SQS FIFO
+Your JD specifically mentions Standard + FIFO, so let's quickly see the difference practically.
+PURPOSE:
+Why FIFO?
+FIFO = First In, First Out
+It provides message ordering and deduplication features.
+Example:
+Message 1
+Message 2
+Message 3
+      ↓
+FIFO Queue
+      ↓
+1 → 2 → 3
+
+Standard SQS prioritizes very high throughput, while FIFO is used when ordering matters.
+Interview answer
+"I've worked with both Standard and FIFO SQS queues. I would use Standard when high throughput and at-least-once delivery are sufficient. I would use FIFO when message ordering and deduplication are important, for example when processing ordered device state changes or transactions."
+
+Create the FIFO queue.
+------------------------------------------------------------------------------------------------------------------------------------
+HANDSON
+Go to:
+SQS → Create queue → FIFO
+Name:
+InterviewFIFO.fifo
+
+Leave the defaults.
+Create it.
