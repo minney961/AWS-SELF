@@ -7,6 +7,7 @@
        CDK             Lambda          IAM
     TypeScript       API Gateway        KMS
    CloudFormation     DynamoDB       Secrets Manager
+         
           |                |                |
           +----------------+----------------+
                            |
