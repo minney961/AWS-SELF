@@ -1,0 +1,25 @@
+Step 6 — Deploy the API
+
+PURPOSE:
+Why?
+Creating the method isn't enough. Deployment publishes the API configuration to a stage so clients can actually call it.
+Your flow is now:
+POST /devices
+      ↓
+API Gateway
+      ↓
+InterviewLambda
+
+HANDSON:
+In API Gateway:
+Deploy API
+Choose:
+New stage
+Stage name:
+dev
+
+Click Deploy.
+You'll get an Invoke URL, something like:
+https://xxxxx.execute-api.ap-south-1.amazonaws.com/dev
+
+Copy the Invoke URL.
