@@ -1,0 +1,12 @@
+Go to:
+AWS Console → IAM → Roles → Create role
+Choose:
+Trusted entity → AWS service → Lambda
+Attach:
+AWSLambdaBasicExecutionRole
+
+Role name:
+InterviewLambdaRole
+
+Create it.
+
