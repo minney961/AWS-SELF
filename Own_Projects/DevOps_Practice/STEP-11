@@ -1,0 +1,27 @@
+SQS
+PURPOSE:
+Why?
+SQS lets us decouple components and process work asynchronously.
+We'll eventually have:
+API Gateway
+     ↓
+Lambda
+     ↓
+SQS
+     ↓
+Another Lambda
+     ↓
+DynamoDB
+
+This is a very important event-driven/serverless pattern
+
+HANDSON:
+Go to:
+AWS Console → SQS → Create queue
+Choose:
+Standard
+Name:
+InterviewQueue
+
+Leave the other settings at their defaults.
+Create it.
