@@ -1,0 +1,53 @@
+Step 10 — Connect Lambda → DynamoDB
+PURPOSE:
+Why?
+Now Lambda is doing:
+API/Event
+   ↓
+Lambda
+   ↓
+DynamoDB
+
+Instead of simply returning a message, Lambda persists the device data.
+--------------------------------------------------------------------------------------
+HANDSON:
+Now we'll give our Lambda permission to write to DynamoDB.
+1. Go to IAM
+IAM → Roles → InterviewLambdaRole → Add permissions → Attach policies
+Search:
+AmazonDynamoDBFullAccess
+
+Attach it temporarily for this lab.
+Why: Lambda currently only has permission to write CloudWatch logs. We need to give it permission to access DynamoDB.
+In production, we would not use FullAccess; we'd create a least-privilege policy allowing only the required table actions.
+
+2. Go back to Lambda
+Lambda → InterviewLambda → Code
+Replace the code with:
+import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
+
+const client = new DynamoDBClient({});
+
+export const handler = async (event) => {
+
+    const item = {
+        deviceId: { S: event.deviceId },
+        temperature: { N: String(event.temperature) }
+    };
+
+    await client.send(new PutItemCommand({
+        TableName: "InterviewDevices",
+        Item: item
+    }));
+
+    console.log("Device data stored successfully");
+
+    return {
+        statusCode: 200,
+        body: JSON.stringify({
+            message: "Device data stored successfully"
+        })
+    };
+};
+
+Click Deploy.
