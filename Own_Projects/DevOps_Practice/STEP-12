@@ -1,0 +1,29 @@
+Step 12 — Send a message to SQS
+PURPOSE:
+Why?
+SQS acts as a buffer/queue between producers and consumers.
+Producer
+   ↓
+SQS
+   ↓
+Consumer
+
+The producer doesn't have to wait for the consumer to process the message.
+Interview answer
+"I've used SQS to decouple components and enable asynchronous processing. 
+The producer sends messages to the queue, and a consumer such as Lambda processes them independently. 
+This also helps with retries and handling temporary downstream failures."
+----------------------------------------------------------------------------------------------------------------------------
+HANDSON:
+Open:
+SQS → Queues → InterviewQueue → Send and receive messages
+Click Send message.
+Message body:
+{
+  "deviceId": "device-003",
+  "temperature": 32
+}
+
+Send it.
+Then click Poll for messages.
+You should see the message.
