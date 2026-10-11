@@ -1,0 +1,28 @@
+Step 9 — Put an item into DynamoDB
+PURPOSE:
+Why?
+We're manually storing a device record to understand how DynamoDB works before connecting Lambda.
+You'll see:
+deviceId       temperature
+device-001     28
+
+Interview point
+If they ask:
+"How do you design a DynamoDB table?"
+
+Say:
+"I start with the application's access patterns. I identify how the application needs to read and write the data, then choose the partition key and sort key accordingly. I also consider whether GSIs are required for additional query patterns and make sure the partition key distributes traffic properly."
+
+That's an important answer.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+HANDSON:
+Go to:
+DynamoDB → Tables → InterviewDevices → Explore table items → Create item
+Add:
+deviceId = device-001
+
+Then add another attribute:
+temperature = 28
+
+You can keep temperature as Number.
+Click Create item.
